@@ -1,4 +1,3 @@
-
 jQuery(document).ready(function($) {
 
 	'use strict';
@@ -115,25 +114,29 @@ jQuery(document).ready(function($) {
             transitionSpeed: 400
         });
 
+
         // loại bay
       $("input[value='one-way']").click(function(){
+          $(".returnDate").attr('disabled', 'disabled');
           $("#return").hide();
-      })
+
+      });
       $("input[value='round']").click(function(){
           $("#return").show();
-      })
+          $(".returnDate").removeAttr('disabled');
+      });
 
-            // bắt code không trùng thành phố
-            $("#from").change(function(){
-              let valueCity1 = "#" + this.value;
-              $("#to>option").show();
-              $("#to >" + valueCity1).hide();
-            })
-      
-            $("#to").change(function(){
-              let valueCity2 = "#" + this.value;
-              $("#from>option").show();
-              $("#from >" + valueCity2).hide();
-            })
-            // kết thúc code không trùng thành phố
+      // bắt code không trùng thành phố
+      $("#from").change(function(){
+        let valueCity1 = "#" + this.value;
+        $("#to>option").show();
+        $("#to >" + valueCity1).hide();
+      });
+
+      $("#to").change(function(){
+        let valueCity2 = "#" + this.value;
+        $("#from>option").show();
+        $("#from >" + valueCity2).hide();
+      });
+      // kết thúc code không trùng thành phố
 });
